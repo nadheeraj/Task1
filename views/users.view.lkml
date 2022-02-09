@@ -113,7 +113,8 @@ view: users {
 
   dimension: name_length {
     type: number
-    sql: TO_NUMBER(${full_name} ;;
+    sql: CAST(${full_name}.string_field as INTEGER);;
+
   }
 
   measure: count {
