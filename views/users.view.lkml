@@ -113,7 +113,7 @@ view: users {
 
   dimension: name_length {
     type: number
-    sql: CAST(${full_name}.string_field as INTEGER);;
+    sql: CAST(${full_name} as INTEGER);;
 
   }
 
