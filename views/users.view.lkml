@@ -47,6 +47,23 @@ view: users {
     sql: ${TABLE}.country ;;
   }
 
+  dimension: full_name {
+    type: string
+    sql: CONCAT(${first_name}, ' ', ${last_name}) ;;
+  }
+
+  dimension: name_length {
+    type: number
+    sql: TO_NUMBER(${full_name}) ;;
+  }
+
+  dimension: age_tier {
+    type: tier
+    tiers: [0, 10, 20, 30, 40, 50, 60, 70, 80,90,100]
+    style: integer # the default value, could be excluded
+    sql: ${age} ;;
+
+  }
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
@@ -102,5 +119,10 @@ view: users {
   measure: count {
     type: count
     drill_fields: [id, first_name, last_name, orders.count]
+  }
+
+  measure:  average_user_age{
+    type: average
+    sql: ${age} ;;
   }
 }
