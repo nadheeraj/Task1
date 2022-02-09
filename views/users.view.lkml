@@ -111,11 +111,6 @@ view: users {
     sql: CONCAT(${first_name},' ', ${last_name}) ;;
   }
 
-  dimension: name_length {
-    type: number
-    sql: TO_NUMBER(${first_name}}) ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [id, first_name, last_name, orders.count]
