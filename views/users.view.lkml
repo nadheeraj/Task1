@@ -47,16 +47,6 @@ view: users {
     sql: ${TABLE}.country ;;
   }
 
-  dimension: full_name {
-    type: string
-    sql: CONCAT(${first_name}, ' ', ${last_name}) ;;
-  }
-
-  dimension: name_length {
-    type: number
-    sql: TO_NUMBER(${full_name}) ;;
-  }
-
   dimension: age_tier {
     type: tier
     tiers: [0, 10, 20, 30, 40, 50, 60, 70, 80,90,100]
@@ -114,6 +104,16 @@ view: users {
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;
+  }
+
+  dimension: full_name {
+    type: string
+    sql: CONCAT(${first_name}, ' ', ${last_name}) ;;
+  }
+
+  dimension: name_length {
+    type: number
+    sql: TO_NUMBER(${full_name}) ;;
   }
 
   measure: count {
