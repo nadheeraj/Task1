@@ -108,7 +108,12 @@ view: users {
 
   dimension: full_name {
     type: string
-    sql: CONCAT(${first_name},'', ${last_name}) ;;
+    sql: CONCAT(${first_name},' ', ${last_name}) ;;
+  }
+
+  dimension: name_length {
+    type: number
+    sql: TO_NUMBER(${full_name} ;;
   }
 
   measure: count {
