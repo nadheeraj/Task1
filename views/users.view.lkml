@@ -113,7 +113,7 @@ view: users {
 
   dimension: name_length {
     type: number
-    sql: to_number(${full_name});;
+    sql: length(${TABLE}.full_name);;
 
   }
 
